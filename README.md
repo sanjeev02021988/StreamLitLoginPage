@@ -15,7 +15,7 @@ Once the values are filled sing up button gets enabled, clicking which will show
 $ cd StreamLitLoginPage
 $ python3 -m venv venv  # create venv
 $ . venv/bin/activate   # activate venv
-$ pip install streamlit # install streamlit
+$ pip3 install streamlit # install streamlit
 ```
 * Initialize and run the component frontend:
 ```
