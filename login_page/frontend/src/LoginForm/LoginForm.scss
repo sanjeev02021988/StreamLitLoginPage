@@ -1,0 +1,78 @@
+@import '../variable';
+
+.LoginForm {
+  font-size: $font-size-sm;
+  width: 550px;
+  height: 80vh;
+  min-height: 650px;
+  padding: 20px 20px;
+  margin: 10vh auto;
+  border-radius: 10px;
+  background: var(--color-bg-login-form);
+  color: var(--color-txt-primary);
+  box-shadow: 0 0 10px var(--color-shadow);
+
+  .Header {
+    .Brand {
+      margin: 20px 0 10px;
+      img {
+        height: 50px;
+      }
+    }
+    .Title {
+      font-size: $font-size-lg;
+      color: var(--color-title);
+    }
+  }
+  .Form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+    height: calc(100% - 200px);
+
+    .InputWrapper,
+    .InputWrapperPassword {
+      margin: 15px 15%;
+      border-radius: 5px;
+      input {
+        font-size: $font-size-md;
+        padding: 30px;
+        border: none;
+        background: var(--color-bg-primary);
+        &::placeholder {
+          color: var(--color-txt-primary);
+        }
+      }
+    }
+    .InputWrapperPassword {
+      .mantine-PasswordInput-input {
+        border: none;
+        height: 60px;
+        background: var(--color-bg-primary);
+      }
+      .mantine-PasswordInput-rightSection {
+        margin-right: 10px;
+      }
+    }
+    .Declaration {
+      margin: 10px;
+      a {
+        font-weight: 600;
+        text-decoration: none;
+        color: var(--color-link);
+      }
+    }
+    .Button {
+      font-size: $font-size-md;
+      margin: 25px auto;
+      border-radius: 5px;
+      min-height: 45px;
+      color: var(--color-primary-btn);
+      background: var(--color-bg-primary-btn);
+      &:disabled {
+        background: var(--color-bg-primary-btn-disabled);
+      }
+    }
+  }
+}
