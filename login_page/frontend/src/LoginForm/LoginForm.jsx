@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useCallback, useContext } from "react"
 import { TextInput, PasswordInput, Button } from "@mantine/core"
-import { default as logo } from "../assets/logo.webp"
+import logo from "../assets/logo.webp"
 import { NotificationContext } from "../NotificationProvider/NotificationProvider"
 import "./LoginForm.scss"
 
@@ -61,7 +61,7 @@ export default function LoginForm() {
           <a href="https://samooha.tech">Terms of Service</a> and{" "}
           <a href="https://samooha.tech">Privacy policy</a>.
         </span>
-        <Button onClick={onLogin} className="Button" disabled={!isFormValid}>
+        <Button onClick={onLogin} role="button" className="Button" disabled={!isFormValid}>
           Sign up
         </Button>
       </div>
