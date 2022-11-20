@@ -21,9 +21,11 @@ _RELEASE = False
 # best practice.
 parent_dir = os.path.dirname(os.path.abspath(__file__))
 
+# Defining the favicon to be shown along with tab title 
+assets_dir = os.path.join(parent_dir, "frontend/assets")
+favicon = Image.open(assets_dir + "/images/favicon.png")
+
 if not _RELEASE:
-    assets_dir = os.path.join(parent_dir, "frontend/src/assets")
-    favicon = Image.open(assets_dir + "/favicon.png")
     _component_func = components.declare_component(
         # We give the component a simple, descriptive name ("login_page"
         # does not fit this bill, so please choose something better for your
@@ -39,7 +41,6 @@ else:
     # replace the `url` param with `path`, and point it to to the component's
     # build directory:
     build_dir = os.path.join(parent_dir, "frontend/build")
-    favicon = Image.open(build_dir + "/media/favicon.png")
     _component_func = components.declare_component("login_page", path=build_dir)
 
 
@@ -82,5 +83,7 @@ if not _RELEASE:
     # it is considered a new instance and will be re-mounted on the frontend
     # and lose its current state. In this case, we want to vary the component's
     # "name" argument without having it get recreated.
+    login_page()
+else: 
     login_page()
     
