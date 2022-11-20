@@ -28,4 +28,5 @@ code {
 
 .LoginPage {
     min-height: 750px;
+    display: flex;
 }

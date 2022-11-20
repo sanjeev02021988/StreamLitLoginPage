@@ -1,0 +1,16 @@
+.stApp [data-testid="stHeader"] {
+    display: none;
+}
+
+.block-container {
+    padding: 0;
+    overflow: hidden;
+}
+
+.block-container + footer {
+    display: none;
+}
+
+.block-container [data-testid="stVerticalBlock"] {
+    gap: 0;
+}

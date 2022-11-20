@@ -1,5 +1,7 @@
 import os
+import streamlit as st
 import streamlit.components.v1 as components
+from PIL import Image
 
 # Create a _RELEASE constant. We'll set this to False while we're developing
 # the component, and True when we're ready to package and distribute it.
@@ -17,8 +19,11 @@ _RELEASE = False
 # *only thing* you need to do to create the binding between Streamlit and
 # your component frontend. Everything else we do in this file is simply a
 # best practice.
+parent_dir = os.path.dirname(os.path.abspath(__file__))
 
 if not _RELEASE:
+    assets_dir = os.path.join(parent_dir, "frontend/src/assets")
+    favicon = Image.open(assets_dir + "/favicon.png")
     _component_func = components.declare_component(
         # We give the component a simple, descriptive name ("login_page"
         # does not fit this bill, so please choose something better for your
@@ -33,8 +38,8 @@ else:
     # When we're distributing a production version of the component, we'll
     # replace the `url` param with `path`, and point it to to the component's
     # build directory:
-    parent_dir = os.path.dirname(os.path.abspath(__file__))
     build_dir = os.path.join(parent_dir, "frontend/build")
+    favicon = Image.open(build_dir + "/media/favicon.png")
     _component_func = components.declare_component("login_page", path=build_dir)
 
 
@@ -57,12 +62,15 @@ def login_page():
     # There's no need to do this in our simple example - but it's an option.
     return component_value
 
+st.set_page_config(page_title='Samooha', page_icon=favicon, layout="wide")
 
+with open(parent_dir + '/style.css') as f:
+    st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+    
 # Add some test code to play with the component while it's in development.
 # During development, we can run this just as we would any other Streamlit
 # app: `$ streamlit run login_page/__init__.py`
 if not _RELEASE:
-    import streamlit as st
     # Create an instance of our component with a constant `name` arg, and
     # print its output value.
 
